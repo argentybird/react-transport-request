@@ -1,41 +1,142 @@
 @import '~antd/dist/antd.css';
 @import 'leaflet/dist/leaflet.css';
+@import './app/components/SplitterLayout.css';
 
-.App {
-  text-align: center;
+#root {
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#layout {
+  min-height: 100%;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#layout .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#layout .trigger:hover {
+  color: #1890ff;
+}
+
+#layout .logo {
+  height: 32px;
+  margin: 16px;
+  background: url(logo.svg) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+  margin: 24px 16px;
+  padding: 0;
+  min-height: 280;
+}
+
+
+/* Map. Container. */
+.leaflet-container {
+ height: 100%;
+ width: 100%;
+}
+
+/* Request panel */
+.claim-container {
+  width: inherit;
+}
+
+
+.flex {
   display: flex;
+}
+
+.flex-column {
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100%;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.bg-darker {
+  background-color: #202020;
+}
+
+.bg-dark {
+  background-color: #2D3032;
+}
+
+.font-mono {
+  font-family: monospace;
+}
+
+.color-white {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.overflow-hidden {
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contents {
+  width: 100%;
+  display: grid;
+  place-items: start;
+  transition: filter 0.2s ease-out, background-color 0.2s ease-out;
+  font-size: 16px;
+}
+
+.dragging {
+  filter: blur(1px);
+  /* background-color: #555555; */
+}
+
+.latlng {
+  padding-top: 5px;
+  font-size: 12px;
+}
+
+/* Coursor changes when focus on request name */
+.ant-table-row {
+  cursor: pointer
+}
+
+/* Lightning of chosen request */
+.claim-selected {
+  background-color: #ddd !important;
+}
+
+.claim-selected:hover > td {
+  background-color: #ccc !important;
+}
+
+
+.leaflet-control-container .leaflet-routing-container-hide {
+	width: 40px;
+	height: 40px;
+}
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 0px;
+}
+
+.leaflet-routing-container, .leaflet-routing-error {
+	background-color: white;
+	padding-top: 3px;
+	transition: all 0.2s ease;
 }
